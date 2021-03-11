@@ -1,0 +1,6 @@
+rootProject.name = 'chocoboard'
+include 'chocoboard-api'
+include 'chocoboard-datasource'
+include 'chocoboard-common'
+include 'chocoboard-dao'
+

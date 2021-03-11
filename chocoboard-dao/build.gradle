@@ -1,0 +1,16 @@
+dependencies {
+    implementation project (':chocoboard-common')
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter'
+    implementation 'com.zaxxer:HikariCP:3.2.0'
+    implementation 'mysql:mysql-connector-java'
+    testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}

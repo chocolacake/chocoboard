@@ -1,0 +1,45 @@
+plugins {
+    id "io.spring.dependency-management" version "1.0.11.RELEASE"
+    id 'org.springframework.boot' version '2.1.3.RELEASE'
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.chocoboard'
+    version = '0.0.1-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+
+    ext {
+        mysqlConnectorVersion = '8.0.16'
+        mybatisVersion = '3.4.6'
+        junitVersion = '4.12'
+        mybatisVersion = '2.1.2'
+    }
+
+    dependencies {
+        implementation 'org.projectlombok:lombok:1.18.16'
+        annotationProcessor 'org.projectlombok:lombok:1.18.16'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation "junit:junit:$junitVersion"
+    }
+
+    dependencyManagement {
+        dependencies {
+            dependency "mysql:mysql-connector-java:$mysqlConnectorVersion"
+            dependency "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisVersion"
+        }
+    }
+}
